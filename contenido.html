@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunas del Universo - Lunas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<section class="pagina">
+    <header>
+        <div class="logo">☾ Lunas del Universo</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="contenido.html">Lunas</a>
+            <a href="informacion.html">Curiosidades</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <h1>Descubre los tipos de lunas</h1>
+        <p>Las lunas son cuerpos celestes naturales que orbitan alrededor de los planetas.</p>
+
+        <div class="tarjetas">
+            <article class="tarjeta">
+                <img src="https://images-assets.nasa.gov/image/PIA00405/PIA00405~orig.jpg" alt="Luna rocosa">
+                <h2>Lunas rocosas</h2>
+                <p>Están formadas principalmente por rocas y minerales.</p>
+                <button onclick="abrirModal('rocosa')">Conocer más</button>
+            </article>
+
+            <article class="tarjeta">
+                <img src="https://images-assets.nasa.gov/image/PIA07724/PIA07724~orig.jpg" alt="Luna helada">
+                <h2>Lunas heladas</h2>
+                <p>Contienen grandes cantidades de hielo en su superficie.</p>
+                <button onclick="abrirModal('helada')">Conocer más</button>
+            </article>
+
+            <article class="tarjeta">
+                <img src="https://images-assets.nasa.gov/image/PIA01081/PIA01081~orig.jpg" alt="Luna volcánica">
+                <h2>Lunas volcánicas</h2>
+                <p>Presentan actividad volcánica y cambios en su superficie.</p>
+                <button onclick="abrirModal('volcanica')">Conocer más</button>
+            </article>
+
+            <article class="tarjeta">
+                <img src="https://images-assets.nasa.gov/image/PIA07716/PIA07716~orig.jpg" alt="Luna con atmósfera">
+                <h2>Lunas con atmósfera</h2>
+                <p>Poseen una capa de gases alrededor de ellas.</p>
+                <button onclick="abrirModal('atmosfera')">Conocer más</button>
+            </article>
+        </div>
+
+        <h1>Algunos planetas del sistema solar</h1>
+
+        <div class="tarjetas">
+            <article class="tarjeta">
+                <h2>Tierra</h2>
+                <p>Tiene una luna natural que conocemos como la Luna.</p>
+                <button onclick="abrirModal('tierra')">Conocer más</button>
+            </article>
+
+            <article class="tarjeta">
+                <h2>Marte</h2>
+                <p>Tiene dos pequeñas lunas: Fobos y Deimos.</p>
+                <button onclick="abrirModal('marte')">Conocer más</button>
+            </article>
+
+            <article class="tarjeta">
+                <h2>Júpiter</h2>
+                <p>Es el planeta con numerosas lunas conocidas.</p>
+                <button onclick="abrirModal('jupiter')">Conocer más</button>
+            </article>
+
+            <article class="tarjeta">
+                <h2>Saturno</h2>
+                <p>Posee un gran sistema de lunas y anillos.</p>
+                <button onclick="abrirModal('saturno')">Conocer más</button>
+            </article>
+        </div>
+    </main>
+
+    <footer>☾ Lunas del Universo</footer>
+</section>
+
+<!-- Ventanas de información -->
+<div id="rocosa" class="modal" onclick="cerrarFondo(event)">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+        <h2>Lunas rocosas</h2>
+        <p>Están compuestas principalmente por materiales sólidos, rocas y minerales. La Luna de la Tierra es un ejemplo.</p>
+    </div>
+</div>
+
+<div id="helada" class="modal" onclick="cerrarFondo(event)">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+        <h2>Lunas heladas</h2>
+        <p>Contienen hielo de agua y otros materiales congelados. Europa y Encélado son ejemplos de lunas heladas.</p>
+    </div>
+</div>
+
+<div id="volcanica" class="modal" onclick="cerrarFondo(event)">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+        <h2>Lunas volcánicas</h2>
+        <p>Ío, una luna de Júpiter, destaca por su intensa actividad volcánica.</p>
+    </div>
+</div>
+
+<div id="atmosfera" class="modal" onclick="cerrarFondo(event)">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+        <h2>Lunas con atmósfera</h2>
+        <p>Algunas lunas tienen gases que rodean su superficie. Titán, luna de Saturno, posee una atmósfera densa.</p>
+    </div>
+</div>
+
+<div id="tierra" class="modal" onclick="cerrarFondo(event)">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+        <h2>La Tierra</h2>
+        <p>La Tierra tiene un satélite natural: la Luna, que influye en las mareas.</p>
+    </div>
+</div>
+
+<div id="marte" class="modal" onclick="cerrarFondo(event)">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+        <h2>Marte</h2>
+        <p>Sus dos lunas son Fobos y Deimos, cuerpos pequeños de forma irregular.</p>
+    </div>
+</div>
+
+<div id="jupiter" class="modal" onclick="cerrarFondo(event)">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+        <h2>Júpiter</h2>
+        <p>Entre sus lunas más conocidas están Ío, Europa, Ganímedes y Calisto.</p>
+    </div>
+</div>
+
+<div id="saturno" class="modal" onclick="cerrarFondo(event)">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+        <h2>Saturno</h2>
+        <p>Saturno tiene muchas lunas. Titán y Encélado son dos de las más estudiadas.</p>
+    </div>
+</div>
+
+<script>
+function abrirModal(id) {
+    document.getElementById(id).style.display = "flex";
+}
+
+function cerrarModal() {
+    document.querySelectorAll(".modal").forEach(function(modal) {
+        modal.style.display = "none";
+    });
+}
+
+function cerrarFondo(event) {
+    if (event.target.classList.contains("modal")) {
+        cerrarModal();
+    }
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        cerrarModal();
+    }
+});
+</script>
+
+</body>
+</html>

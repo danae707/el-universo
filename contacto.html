@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunas del Universo - Contacto</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<section class="pagina contacto">
+    <header>
+        <div class="logo">☾ Lunas del Universo</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="contenido.html">Lunas</a>
+            <a href="informacion.html">Curiosidades</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="centrado">Contacto</h1>
+
+        <div class="contacto-contenedor">
+            <div>
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA12348/PIA12348~orig.jpg"
+                    alt="Espacio y universo">
+            </div>
+
+            <div>
+                <h2>¿Tienes alguna pregunta?</h2>
+                <p>
+                    Envíanos tu mensaje. Nos interesa conocer
+                    tus dudas y opiniones sobre las lunas
+                    y los misterios del universo.
+                </p>
+
+                <form id="formulario">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" placeholder="Escribe tu correo" required>
+
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+
+                    <button class="boton" type="submit">Enviar mensaje ✦</button>
+                    <p id="respuesta"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        ☾ Lunas del Universo | Gracias por visitarnos
+    </footer>
+</section>
+
+<script>
+document.getElementById("formulario").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("respuesta").textContent =
+        "¡Gracias por visitar Lunas del Universo! ✨";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
