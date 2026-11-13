@@ -1,0 +1,795 @@
+<!DOCTYPE html>  <html lang="es">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Lunas del Universo</title>  <style>  
+  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+  
+body {  
+    font-family: Arial, sans-serif;  
+    background: linear-gradient(#071329, #14264b, #080f22);  
+    color: #e7edff;  
+    line-height: 1.6;  
+}  
+  
+/* ENCABEZADO */  
+  
+header {  
+    text-align: center;  
+    padding: 30px 15px;  
+    background: linear-gradient(120deg, #101d42, #39265e);  
+    border-bottom: 2px solid #8cc8ed;  
+}  
+  
+header h1 {  
+    font-size: 35px;  
+    color: white;  
+}  
+  
+header p {  
+    color: #c7e8ff;  
+}  
+  
+/* MENU */  
+  
+nav {  
+    background: #0b1731;  
+    display: flex;  
+    justify-content: center;  
+    flex-wrap: wrap;  
+    gap: 8px;  
+    padding: 15px;  
+}  
+  
+nav button {  
+    background: transparent;  
+    color: white;  
+    border: none;  
+    padding: 10px 13px;  
+    cursor: pointer;  
+    font-size: 14px;  
+    border-radius: 20px;  
+}  
+  
+nav button:hover {  
+    background: #7657a6;  
+}  
+  
+/* CONTENIDO */  
+  
+main {  
+    width: 92%;  
+    max-width: 1100px;  
+    margin: 25px auto;  
+}  
+  
+.pagina {  
+    display: none;  
+}  
+  
+.pagina.activa {  
+    display: block;  
+}  
+  
+h2 {  
+    color: #b9e3ff;  
+    text-align: center;  
+    margin-bottom: 18px;  
+}  
+  
+h3 {  
+    color: #b9e3ff;  
+    margin-bottom: 10px;  
+}  
+  
+p {  
+    margin-bottom: 12px;  
+}  
+  
+/* IMAGEN PRINCIPAL */  
+  
+.imagen-principal {  
+    width: 100%;  
+    height: 300px;  
+    object-fit: cover;  
+    border-radius: 15px;  
+    margin: 15px 0;  
+    border: 2px solid #8cc8ed;  
+}  
+  
+/* SECCIONES */  
+  
+.panel {  
+    background: #ffffff12;  
+    border: 1px solid #57739f;  
+    border-radius: 15px;  
+    padding: 22px;  
+    margin: 25px 0;  
+}  
+  
+/* TARJETAS */  
+  
+.grid {  
+    display: grid;  
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));  
+    gap: 18px;  
+    margin: 20px 0;  
+}  
+  
+.card {  
+    background: #ffffff12;  
+    border: 1px solid #49658f;  
+    border-radius: 15px;  
+    padding: 15px;  
+    text-align: center;  
+}  
+  
+.card img {  
+    width: 100%;  
+    height: 160px;  
+    object-fit: cover;  
+    border-radius: 10px;  
+    margin-bottom: 12px;  
+}  
+  
+/* BOTONES */  
+  
+.boton {  
+    display: inline-block;  
+    background: #8cc8ed;  
+    color: #08152f;  
+    border: none;  
+    border-radius: 25px;  
+    padding: 12px 20px;  
+    margin: 10px 5px;  
+    font-weight: bold;  
+    cursor: pointer;  
+    font-size: 15px;  
+}  
+  
+.boton:hover {  
+    background: #c5e9ff;  
+}  
+  
+.secundario {  
+    background: #7657a6;  
+    color: white;  
+}  
+  
+/* LISTAS */  
+  
+ul {  
+    padding-left: 25px;  
+}  
+  
+li {  
+    margin: 10px 0;  
+}  
+  
+/* FASES DE LA LUNA */  
+  
+.fases {  
+    display: grid;  
+    grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));  
+    gap: 15px;  
+    text-align: center;  
+}  
+  
+.fase {  
+    background: #ffffff12;  
+    padding: 12px;  
+    border-radius: 15px;  
+    border: 1px solid #49658f;  
+}  
+  
+.fase img {  
+    width: 100%;  
+    max-width: 100px;  
+    height: 100px;  
+    object-fit: cover;  
+    border-radius: 50%;  
+    margin-bottom: 10px;  
+}  
+  
+.fase strong {  
+    display: block;  
+    color: #b9e3ff;  
+}  
+  
+/* FORMULARIO */  
+  
+form {  
+    display: grid;  
+    gap: 12px;  
+}  
+  
+label {  
+    font-weight: bold;  
+}  
+  
+input, textarea {  
+    width: 100%;  
+    padding: 12px;  
+    border-radius: 8px;  
+    border: 1px solid #8cc8ed;  
+    font-size: 15px;  
+}  
+  
+textarea {  
+    min-height: 130px;  
+}  
+  
+/* PIE DE PAGINA */  
+  
+footer {  
+    background: #050d1d;  
+    text-align: center;  
+    padding: 25px;  
+    margin-top: 40px;  
+    border-top: 1px solid #45618d;  
+}  
+  
+/* CELULARES */  
+  
+@media(max-width: 600px) {  
+  
+    header h1 {  
+        font-size: 27px;  
+    }  
+  
+    nav {  
+        gap: 4px;  
+        padding: 10px 5px;  
+    }  
+  
+    nav button {  
+        font-size: 12px;  
+        padding: 8px;  
+    }  
+  
+    .imagen-principal {  
+        height: 210px;  
+    }  
+  
+    .card img {  
+        height: 180px;  
+    }  
+  
+}  
+  
+</style>  </head>  <body>  <header>  
+    <h1>🌙 Lunas del Universo</h1>  
+    <p>Descubre los mundos que iluminan el universo</p>  
+</header>  <nav>  
+    <button onclick="mostrarPagina('inicio')">Inicio</button>  
+    <button onclick="mostrarPagina('lunas')">Lunas</button>  
+    <button onclick="mostrarPagina('curiosidades')">Curiosidades</button>  
+    <button onclick="mostrarPagina('contacto')">Contacto</button>  
+</nav>  <main>  <!-- ================================= -->  <!-- PAGINA 1: INICIO -->  <!-- ================================= -->  <div id="inicio" class="pagina activa">  <section class="panel">  
+
+    <h2>¿Qué son las lunas?</h2>  
+
+    <p>  
+    Las lunas, también llamadas satélites naturales,  
+    son cuerpos celestes que giran alrededor de los  
+    planetas debido a la gravedad. Existen lunas de  
+    diferentes tamaños, formas y características.  
+    Algunas tienen hielo, otras volcanes y algunas  
+    podrían esconder océanos debajo de su superficie.  
+    </p>  
+
+</section>  
+
+<h2>Explora las lunas del universo</h2>  
+
+<div class="grid">  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"  
+        alt="Luna llena">  
+
+        <h3>Nuestra Luna</h3>  
+
+        <p>  
+        Es el satélite natural que acompaña  
+        a nuestro planeta Tierra.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg"  
+        alt="Luna Europa">  
+
+        <h3>Europa</h3>  
+
+        <p>  
+        Es una luna de Júpiter que podría  
+        esconder un océano debajo del hielo.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Titan_in_true_color.jpg"  
+        alt="Luna Titán">  
+
+        <h3>Titán</h3>  
+
+        <p>  
+        Es una luna de Saturno que tiene  
+        una atmósfera muy especial.  
+        </p>  
+
+    </article>  
+
+</div>  
+
+<section class="panel">  
+
+    <h2>Un viaje por el espacio</h2>  
+
+    <img class="imagen-principal"  
+    src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=85"  
+    alt="Galaxia en el espacio">  
+
+    <p>  
+    En este sitio conocerás cómo se forman las lunas,  
+    dónde se encuentran, cuáles son sus tipos y  
+    algunas de las más sorprendentes del sistema solar.  
+    También descubrirás datos curiosos y misterios  
+    que los científicos siguen investigando.  
+    </p>  
+
+    <center>  
+        <button class="boton"  
+        onclick="mostrarPagina('lunas')">  
+        Conocer las lunas  
+        </button>  
+    </center>  
+
+</section>
+
+</div>  <!-- ================================= -->  <!-- PAGINA 2: CONTENIDO PRINCIPAL -->  <!-- ================================= -->  <div id="lunas" class="pagina">  <h2>Conoce las lunas del universo</h2>  
+
+<section class="panel">  
+
+    <h3>¿Qué es una luna?</h3>  
+
+    <p>  
+    Una luna es un satélite natural que gira  
+    alrededor de un planeta debido a la gravedad.  
+    Existen lunas de diferentes tamaños,  
+    formas y características.  
+    </p>  
+
+    <img class="imagen-principal"  
+    src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"  
+    alt="Fotografía de nuestra Luna">  
+
+</section>  
+
+<section class="panel">  
+
+    <h2>¿Cómo se forman las lunas?</h2>  
+
+    <p>  
+    Las lunas pueden formarse de diferentes maneras:  
+    algunas nacen de materiales que quedaron alrededor  
+    de un planeta, otras aparecen después de grandes  
+    impactos y algunas son objetos capturados por  
+    la gravedad de un planeta.  
+    </p>  
+
+</section>  
+
+<h2>Tipos de lunas</h2>  
+
+<div class="grid">  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"  
+        alt="Luna rocosa">  
+
+        <h3>Lunas rocosas</h3>  
+
+        <p>  
+        Están formadas principalmente por rocas  
+        y materiales sólidos.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg"  
+        alt="Luna helada">  
+
+        <h3>Lunas heladas</h3>  
+
+        <p>  
+        Tienen grandes cantidades de hielo  
+        en su superficie.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Io_highest_resolution_true_color.jpg"  
+        alt="Luna volcánica">  
+
+        <h3>Lunas volcánicas</h3>  
+
+        <p>  
+        Presentan actividad volcánica  
+        y cambios en su superficie.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Titan_in_true_color.jpg"  
+        alt="Titán">  
+
+        <h3>Lunas con atmósfera</h3>  
+
+        <p>  
+        Están rodeadas por una capa de gases  
+        que las acompaña.  
+        </p>  
+
+    </article>  
+
+</div>  
+
+<section class="panel">  
+
+    <h2>Lunas de los planetas</h2>  
+
+    <p>  
+    Los planetas de nuestro sistema solar  
+    tienen diferentes cantidades de satélites naturales.  
+    </p>  
+
+    <ul>  
+        <li>Mercurio: no tiene lunas.</li>  
+        <li>Venus: no tiene lunas.</li>  
+        <li>Tierra: tiene una luna.</li>  
+        <li>Marte: tiene dos lunas.</li>  
+        <li>Júpiter: tiene numerosas lunas.</li>  
+        <li>Saturno: tiene numerosas lunas.</li>  
+        <li>Urano: tiene varias lunas.</li>  
+        <li>Neptuno: tiene varias lunas.</li>  
+    </ul>  
+
+    <center>  
+
+        <button class="boton"  
+        onclick="mostrarPagina('curiosidades')">  
+        Ver curiosidades  
+        </button>  
+
+        <button class="boton secundario"  
+        onclick="mostrarPagina('inicio')">  
+        Volver al inicio  
+        </button>  
+
+    </center>  
+
+</section>
+
+</div>  <!-- ================================= -->  <!-- PAGINA 3: CURIOSIDADES -->  <!-- ================================= -->  <div id="curiosidades" class="pagina">  <h2>Curiosidades y misterios</h2>  
+
+<section class="panel">  
+
+    <img class="imagen-principal"  
+    src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=1200&q=85"  
+    alt="Universo y estrellas">  
+
+    <p>  
+    Existen lunas que parecen pertenecer a otro mundo.  
+    Algunas tienen océanos escondidos, otras poseen  
+    volcanes y algunas tienen características  
+    que todavía sorprenden a los científicos.  
+    </p>  
+
+</section>  
+
+<h2>Lunas que parecen de otro mundo</h2>  
+
+<div class="grid">  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Ganymede_g1_true-edit1.jpg"  
+        alt="Ganímedes">  
+
+        <h3>Ganímedes</h3>  
+
+        <p>  
+        Es la luna más grande del sistema solar.  
+        Es incluso más grande que el planeta Mercurio.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Titan_in_true_color.jpg"  
+        alt="Titán">  
+
+        <h3>Titán</h3>  
+
+        <p>  
+        Tiene una atmósfera densa y lagos  
+        de metano y etano líquidos.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg"  
+        alt="Europa">  
+
+        <h3>Europa</h3>  
+
+        <p>  
+        Su superficie está cubierta de hielo  
+        y podría tener un océano subterráneo.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Enceladus_from_Cassini.jpg"  
+        alt="Encélado">  
+
+        <h3>Encélado</h3>  
+
+        <p>  
+        Expulsa chorros de agua y partículas  
+        de hielo hacia el espacio.  
+        </p>  
+
+    </article>  
+
+    <article class="card">  
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Io_highest_resolution_true_color.jpg"  
+        alt="Ío">  
+
+        <h3>Ío</h3>  
+
+        <p>  
+        Es uno de los cuerpos con mayor  
+        actividad volcánica del sistema solar.  
+        </p>  
+
+    </article>  
+
+</div>  
+
+<!-- FASES DE LA LUNA -->  
+
+<section class="panel">  
+
+    <h2>Las fases de nuestra Luna</h2>  
+
+    <p>  
+    Las fases lunares son los diferentes aspectos  
+    de la Luna que observamos desde la Tierra  
+    durante su recorrido alrededor de nuestro planeta.  
+    </p>  
+
+    <div class="fases">  
+
+        <div class="fase">  
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"  
+            alt="Luna nueva">  
+
+            <strong>Luna nueva</strong>  
+
+            <p>  
+            Su cara iluminada no es visible  
+            desde la Tierra.  
+            </p>  
+
+        </div>  
+
+        <div class="fase">  
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Moon_first_quarter.jpg"  
+            alt="Cuarto creciente">  
+
+            <strong>Cuarto creciente</strong>  
+
+            <p>  
+            La parte iluminada va aumentando.  
+            </p>  
+
+        </div>  
+
+        <div class="fase">  
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"  
+            alt="Luna llena">  
+
+            <strong>Luna llena</strong>  
+
+            <p>  
+            Podemos observar toda su cara iluminada.  
+            </p>  
+
+        </div>  
+
+        <div class="fase">  
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Moon_last_quarter.jpg"  
+            alt="Cuarto menguante">  
+
+            <strong>Cuarto menguante</strong>  
+
+            <p>  
+            La parte iluminada comienza a disminuir.  
+            </p>  
+
+        </div>  
+
+        <div class="fase">  
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"  
+            alt="Ciclo lunar">  
+
+            <strong>Ciclo lunar</strong>  
+
+            <p>  
+            Las fases se repiten aproximadamente  
+            cada 29.5 días.  
+            </p>  
+
+        </div>  
+
+    </div>  
+
+</section>  
+
+<section class="panel">  
+
+    <h2>¿Por qué es importante estudiarlas?</h2>  
+
+    <p>  
+    Estudiar las lunas nos ayuda a comprender  
+    el origen del sistema solar, conocer otros mundos  
+    y descubrir si existen lugares con condiciones  
+    que podrían permitir la vida.  
+    </p>  
+
+    <center>  
+
+        <button class="boton"  
+        onclick="mostrarPagina('contacto')">  
+        Ir a contacto  
+        </button>  
+
+        <button class="boton secundario"  
+        onclick="mostrarPagina('inicio')">  
+        Regresar al inicio  
+        </button>  
+
+    </center>  
+
+</section>
+
+</div>  <!-- ================================= -->  <!-- PAGINA 4: CONTACTO -->  <!-- ================================= -->  <div id="contacto" class="pagina">  <h2>Contacto</h2>  
+
+<section class="panel">  
+
+    <img class="imagen-principal"  
+    src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=85"  
+    alt="Galaxia y estrellas">  
+
+    <p>  
+    Gracias por visitar nuestra página Lunas del Universo.  
+    Si tienes alguna pregunta, comentario o sugerencia,  
+    puedes escribirnos mediante el siguiente formulario.  
+    </p>  
+
+</section>  
+
+<section class="panel">  
+
+    <h2>Formulario de contacto</h2>  
+
+    <form action="https://formsubmit.co/TU_CORREO@gmail.com"  
+    method="POST">  
+
+        <label for="nombre">  
+        Nombre completo:  
+        </label>  
+
+        <input type="text"  
+        id="nombre"  
+        name="nombre"  
+        placeholder="Escribe tu nombre"  
+        required>  
+
+        <label for="correo">  
+        Correo electrónico:  
+        </label>  
+
+        <input type="email"  
+        id="correo"  
+        name="email"  
+        placeholder="ejemplo@correo.com"  
+        required>  
+
+        <label for="mensaje">  
+        Mensaje:  
+        </label>  
+
+        <textarea  
+        id="mensaje"  
+        name="mensaje"  
+        placeholder="Escribe tu mensaje..."  
+        required></textarea>  
+
+        <input type="hidden"  
+        name="_subject"  
+        value="Mensaje desde Lunas del Universo">  
+
+        <input type="hidden"  
+        name="_template"  
+        value="table">  
+
+        <button type="submit" class="boton">  
+        Enviar mensaje  
+        </button>  
+
+    </form>  
+
+    <center>  
+
+        <button class="boton secundario"  
+        onclick="mostrarPagina('inicio')">  
+        Volver al inicio  
+        </button>  
+
+    </center>  
+
+</section>
+
+</div>  </main>  <footer>  <p>🌌 Lunas del Universo</p>  
+<p>Explorando los misterios del espacio</p>
+
+</footer>  <!-- JAVASCRIPT -->  <script>  
+  
+function mostrarPagina(nombre) {  
+  
+    let paginas = document.querySelectorAll(".pagina");  
+  
+    paginas.forEach(function(pagina) {  
+        pagina.classList.remove("activa");  
+    });  
+  
+    document.getElementById(nombre).classList.add("activa");  
+  
+    window.scrollTo(0, 0);  
+  
+}  
+  
+</script>  </body>  
+</html>
